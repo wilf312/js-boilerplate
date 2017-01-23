@@ -3,9 +3,7 @@ import moment from 'moment'
 
 var rightNow = moment().format('MMMM Do YYYY, h:mm:ss a')
 
-console.log(rightNow)
+console.log('PC '+ rightNow)
 
-document.write(rightNow)
-
-
+document.write('PC '+ rightNow)
 
