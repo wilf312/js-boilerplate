@@ -17,14 +17,18 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: '[name].bundle.js',
+    filename: '[name].js',
   },
   plugins: [
     // Load `moment/Locale/ja.js` and `moment/Locale/it.js`
     // new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ja|it/),
 
     // Load `moment/Locale/ja.js`
-    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ja/),
+    // new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ja/),
+
+    // moment.jsから全ての言語を除外
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+
 
     // after webpack2〜 warnings default false.
     new webpack.optimize.UglifyJsPlugin({}),
