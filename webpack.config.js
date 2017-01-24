@@ -9,8 +9,8 @@ module.exports = {
   context: path.resolve(__dirname, './src'),
   entry: {
     pc: [
-    './components/pc.jsx',
-    // './pc.js',
+    // './components/pc.jsx',
+    './pc.js',
     ],
     sp: [
     './sp.js',
@@ -36,17 +36,17 @@ module.exports = {
           ]
         }
       },
-      // {
-      //   test: /\.js$/,
-      //   exclude: /(node_modules)/,
-      //   loader: 'babel-loader',
-      //   query: {
-      //     presets: [
-      //       'es2015',
-      //       'react',
-      //     ],
-      //   }
-      // }
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader'
+          },
+        ]
+      },
 
     ]
   },
