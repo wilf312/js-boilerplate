@@ -9,7 +9,8 @@ module.exports = {
   context: path.resolve(__dirname, './src'),
   entry: {
     pc: [
-    './pc.js',
+    './components/pc.jsx',
+    // './pc.js',
     ],
     sp: [
     './sp.js',
@@ -18,6 +19,36 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: '[name].js',
+  },
+  module: {
+
+    rules: [
+      {
+        test: /\.js[x]?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            // babel-preset-es2015
+            'es2015',
+            // babel-preset-react
+            'react',
+          ]
+        }
+      },
+      // {
+      //   test: /\.js$/,
+      //   exclude: /(node_modules)/,
+      //   loader: 'babel-loader',
+      //   query: {
+      //     presets: [
+      //       'es2015',
+      //       'react',
+      //     ],
+      //   }
+      // }
+
+    ]
   },
   plugins: [
     // Load `moment/Locale/ja.js` and `moment/Locale/it.js`
@@ -37,7 +68,7 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       filename: '../dist/pc.html',
-      template: 'pc.ejs',
+      template: 'pc.html',
       inject: false,
       hash: hash,
       minify: {
@@ -52,7 +83,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       filename: '../dist/sp.html',
-      template: 'sp.ejs',
+      template: 'sp.html',
       inject: false,
       hash: hash,
       minify: {
