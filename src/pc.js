@@ -1,30 +1,16 @@
-import moment from 'moment'
-import _ from 'lodash'
 
+// ----------------- polyfill関連
 
-var rightNow = moment().format('MMMM Do YYYY, h:mm:ss a')
+// requestAnimationFrame のpolyfill
+import raf from 'raf'
+raf.polyfill()
 
-console.log('PC '+ rightNow)
+// fastclick
+import domready from 'domready'
+import fastclick from 'fastclick'
+domready(function() {
+  fastclick.attach(document.body)
+})
 
-document.write('PC '+ rightNow)
-
-
-const data = [
-{
-  id: 0,
-},
-{
-  id: 1,
-},
-{
-  id: 2,
-},
-{
-  id: 3,
-},
-  ]
-
-console.log(_.filter(data, {id: 1}))
-
-
-
+// fetch
+import fetch from 'isomorphic-fetch'
