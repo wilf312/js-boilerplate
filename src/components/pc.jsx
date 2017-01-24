@@ -1,10 +1,17 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
+const style = require('../pc.css')
+
+
+
+
 
 ReactDOM.render(
-  <h1>hello react aaa</h1>,
+  <div>
+    <h1 className={style.h1}>hello world</h1>
+    <h2 className="h2">hello webpack</h2>
+  </div>
+  ,
   document.querySelector('#app')
   )
 
-
-console.log('test')

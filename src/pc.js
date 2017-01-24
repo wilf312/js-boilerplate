@@ -15,5 +15,4 @@ domready(function() {
 // fetch
 import fetch from 'isomorphic-fetch'
 
-require('./pc.css')
 require('./components/pc.jsx')
